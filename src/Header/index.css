@@ -1,0 +1,56 @@
+.cart-icon-container {
+  position: relative;
+}
+
+.cart-count-container {
+  position: absolute;
+  top: -12px;
+  right: -7px;
+}
+
+.cart-count {
+  background-color: #ff6600;
+  font-family: 'Roboto';
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.nav-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 0px 2px #e6e6e6;
+  padding-left: 13px;
+  padding-right: 13px;
+}
+
+.header-heading {
+  font-family: 'Roboto';
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.my-orders {
+  font-family: 'Roboto';
+  font-size: 23px;
+  font-weight: 500;
+  color: #4d4d33;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 576px) {
+  .header-heading {
+    font-size: 25px;
+  }
+  .my-orders {
+    display: none;
+  }
+}
+.heading-cart-container {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
+}
