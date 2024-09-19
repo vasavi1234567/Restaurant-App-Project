@@ -101,6 +101,17 @@
   font-weight: 500;
 }
 
+.add-to-cart-button {
+  background-color: #0066ff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+}
+
 .item-calories {
   font-family: 'Roboto';
   font-size: 15px;

@@ -1,8 +1,11 @@
+import {useState, useContext} from 'react'
+
+import CartContext from '../../context/CartContext'
+
 import './index.css'
 
-const FoodItem = ({dishDetails, cartItems, addItem, removeItem}) => {
+const FoodItem = ({dishDetails}) => {
   const {
-    dishId,
     dishName,
     dishType,
     dishPrice,
@@ -14,20 +17,21 @@ const FoodItem = ({dishDetails, cartItems, addItem, removeItem}) => {
     dishAvailability,
   } = dishDetails
 
-  const onIncrement = () => addItem(dishDetails)
-  const onDecrement = () => removeItem(dishDetails)
+  const [quantity, setQuantity] = useState(0)
+  const {addCartItem} = useContext(CartContext)
 
-  const getQuantity = () => {
-    const cartItem = cartItems.find(eachItem => eachItem.dishId === dishId)
-    return cartItem ? cartItem.quantity : 0
-  }
+  const onIncrement = () => setQuantity(prevState => prevState + 1)
 
+  const onDecrement = () =>
+    setQuantity(prevState => (prevState > 0 ? prevState - 1 : 0))
+
+  const onAddItemToCart = () => addCartItem({...dishDetails, quantity})
   const renderControl = () => (
     <div className="controller">
       <button className="button" type="button" onClick={onDecrement}>
         -
       </button>
-      <p className="quantity">{getQuantity()}</p>
+      <p className="quantity">{quantity}</p>
       <button className="button" type="button" onClick={onIncrement}>
         +
       </button>
@@ -45,13 +49,19 @@ const FoodItem = ({dishDetails, cartItems, addItem, removeItem}) => {
           {dishCurrency} {dishPrice}
         </p>
         <p className="item-description">{dishDescription}</p>
-        {dishAvailability ? (
-          renderControl()
-        ) : (
-          <p className="not-available">Not available</p>
-        )}
-        {addonCat.length > 0 && (
+        {dishAvailability && renderControl()}
+        {!dishAvailability && <p className="not-available">Not available</p>}
+        {addonCat.length !== 0 && (
           <p className="available">Customizations available</p>
+        )}
+        {quantity > 0 && (
+          <button
+            className="add-to-cart-button"
+            type="button"
+            onClick={onAddItemToCart}
+          >
+            ADD TO CART
+          </button>
         )}
       </div>
       <p className="item-calories">{dishCalories} calories</p>

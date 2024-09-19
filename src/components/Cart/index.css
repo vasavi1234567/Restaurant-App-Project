@@ -1,0 +1,42 @@
+.empty-cart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.empty-cart-image {
+  height: 20vh;
+  margin: 15px;
+}
+.empty-cart-content {
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: 500;
+}
+.cart-items-container {
+  padding: 15px;
+  width: 80%;
+}
+.cart-items-content {
+  font-family: 'Roboto';
+  font-size: 25px;
+  font-weight: 500;
+}
+.remove-all-button {
+  background-color: transparent;
+  font-family: 'Roboto';
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+.cart-list-container {
+  padding: 10px;
+}
+.cart-container {
+  height: 100vh;
+}
+.container {
+  flex: 1;
+}
